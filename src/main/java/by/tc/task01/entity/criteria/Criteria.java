@@ -18,6 +18,10 @@ public class Criteria {
 		return groupSearchName;
 	}
 
+	public Map<String, Object> getCriteria() {
+		return criteria;
+	}
+
 	public void add(String searchCriteria, Object value) {
 
 		criteria.put(searchCriteria, value);

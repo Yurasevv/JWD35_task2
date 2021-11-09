@@ -2,7 +2,7 @@ package by.tc.task01.main;
 
 import static by.tc.task01.entity.criteria.SearchCriteria.*;
 
-import by.tc.task01.dao.parser.ApplianceRepository;
+import by.tc.task01.dao.ApplianceRepository;
 import by.tc.task01.dao.parser.ApplianceSaxHandler;
 import by.tc.task01.dao.parser.ApplianceXmlParser;
 import by.tc.task01.entity.Appliance;
@@ -46,9 +46,9 @@ public class Main {
 		Criteria criteriaTabletPC = new Criteria(TabletPC.class.getSimpleName());
 		criteriaTabletPC.add(TabletPC.COLOR.toString(), "BLUE");
 		criteriaTabletPC.add(TabletPC.DISPLAY_INCHES.toString(), 14);
-		criteriaTabletPC.add(TabletPC.MEMORY_ROM.toString(), 4);
+		criteriaTabletPC.add(TabletPC.MEMORY_ROM.toString(), 8000);
 
-		appliance = service.find(criteriaOven);// find(Object...obj)
+		appliance = service.find(criteriaTabletPC);// find(Object...obj)
 
 		PrintApplianceInfo.print(appliance);
 

@@ -1,5 +1,6 @@
-package by.tc.task01.dao.parser;
+package by.tc.task01.dao;
 
+import by.tc.task01.dao.parser.ApplianceXmlParser;
 import by.tc.task01.entity.Appliance;
 import org.xml.sax.SAXException;
 
