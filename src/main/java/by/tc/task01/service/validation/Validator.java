@@ -13,7 +13,7 @@ public class Validator {
 	public static boolean criteriaValidator(Criteria criteria) throws ValidationException {
 
 		for (Map.Entry<String, Object> c: criteria.getCriteriaMap().entrySet()) {
-			if(!c.getKey().trim().matches(REGEX_KEY_VALIDATION) && c.getValue().toString().matches(REGEX_VALUE_VALIDATION)){
+			if(!c.getKey().trim().matches(REGEX_KEY_VALIDATION) || c.getValue().toString().matches(REGEX_VALUE_VALIDATION)){
 				throw new ValidationException("Invalid value or category");
 			}
 		}
