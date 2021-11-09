@@ -18,7 +18,7 @@ public class Criteria {
 		return groupSearchName;
 	}
 
-	public Map<String, Object> getCriteria() {
+	public Map<String, Object> getCriteriaMap() {
 		return criteria;
 	}
 

@@ -26,13 +26,12 @@ public class Searcher {
 		List<Appliance> appliances = ApplianceRepository.getInstance().getData();
 		List<Appliance> filteredAppliances = new ArrayList<>();
 
-		for (Map.Entry<String, Object> entry : criteria.getCriteria().entrySet()) {
+		for (Map.Entry<String, Object> entry : criteria.getCriteriaMap().entrySet()) {
 
 			filteredAppliances = appliances.stream()
-					.filter(a -> criteria.getGroupSearchName().toLowerCase(Locale.ROOT).equals(a.getClass().getSimpleName().toLowerCase(Locale.ROOT))
-					&& a.toString().replace("\'", "").toLowerCase(Locale.ROOT).contains(entry.getKey().toLowerCase(Locale.ROOT) + "=" + entry.getValue().toString().toLowerCase(Locale.ROOT)))
-					//(entry.getKey().toLowerCase(Locale.ROOT) + "='" + entry.getValue().toString().toLowerCase(Locale.ROOT) + "'"))
-					//.distinct()
+					.filter(a -> (a.getClass().getSimpleName().toLowerCase(Locale.ROOT).equals(criteria.getGroupSearchName().toLowerCase(Locale.ROOT))))
+					.filter(b -> b.toString().toLowerCase(Locale.ROOT).contains(entry.getKey().replace("_", "").toLowerCase(Locale.ROOT) +
+							"=" + entry.getValue().toString().toLowerCase(Locale.ROOT)))
 					.collect(Collectors.toList());
 		}
 		return filteredAppliances;

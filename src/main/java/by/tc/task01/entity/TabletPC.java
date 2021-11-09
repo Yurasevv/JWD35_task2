@@ -80,7 +80,7 @@ public class TabletPC extends Appliance{
                 ", displayInches=" + displayInches +
                 ", memoryRom=" + memoryRom +
                 ", flashMemoryCapacity=" + flashMemoryCapacity +
-                ", color='" + color + '\'' +
+                ", color=" + color +
                 '}';
     }
 }
